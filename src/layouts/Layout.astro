@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+}
+const { title = 'Meddy Ben Ayed' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{title}</title>
+  <meta name="description" content="Meddy Ben Ayed — founder, engineer, and builder based in Fremont, CA."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Meddy Ben Ayed</span>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="mailto:Meddybayed@gmail.com" class="nav-contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<slot />
+
+<div class="footer-bottom">
+  <span>© 2026 Meddy Ben Ayed</span>
+  <span>Fremont, CA</span>
+</div>
+
+</body>
+</html>
