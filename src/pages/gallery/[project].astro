@@ -239,6 +239,11 @@ const project = projects.find(p => p.slug === slug)!;
 </style>
 
 <script is:inline>
+// ─── Video card first-frame previews ───
+document.querySelectorAll('.video-card-preview video').forEach(v => {
+  v.addEventListener('loadedmetadata', () => { v.currentTime = 0.1; });
+});
+
 // ─── DOCX card previews ───
 function loadMammothScript() {
   return new Promise((resolve, reject) => {
