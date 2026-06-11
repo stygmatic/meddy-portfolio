@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { projects } from '../data/gallery.ts';
+---
+<Layout title="Gallery — Meddy Ben Ayed">
+
+<div style="max-width:var(--max);margin:0 auto;padding:100px 40px 80px;">
+  <div style="margin-bottom:56px;">
+    <div class="section-label">GALLERY</div>
+    <h1 style="font-family:var(--font-sans);font-size:clamp(36px,5vw,60px);font-weight:600;letter-spacing:-1.5px;line-height:1.05;color:var(--white);">Project files &amp; media</h1>
+  </div>
+
+  <div class="gallery-grid">
+    {projects.filter(p => !['payallio', 'uav-drone', 'go-kart'].includes(p.slug)).map(project => (
+      <a href={`/gallery/${project.slug}`} class="gallery-card">
+        <div class="gallery-card-img">
+          {project.cover
+            ? <img src={`/gallery/${project.slug}/${encodeURI(project.cover)}`} alt={project.title} style="width:100%;height:100%;object-fit:cover;display:block;"/>
+            : <span class="gallery-card-placeholder">{project.slug.toUpperCase()}</span>
+          }
+        </div>
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">{project.title}</div>
+          <div class="gallery-card-desc">{project.description}</div>
+          <div class="gallery-card-meta">
+            {project.files.length === 0
+              ? <span>No files yet</span>
+              : <span>{project.files.length} file{project.files.length !== 1 ? 's' : ''}</span>
+            }
+            <span class="gallery-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
+
+</Layout>
+
+<style>
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+.gallery-card {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: border-color 0.2s;
+  text-decoration: none;
+}
+.gallery-card:hover { border-color: rgba(255,255,255,0.22); }
+.gallery-card-img {
+  width: 100%; aspect-ratio: 16/9;
+  background: #0a0a0a;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.gallery-card-placeholder {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.18em; color: rgba(255,255,255,0.12);
+}
+.gallery-card-body {
+  padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;
+}
+.gallery-card-title {
+  font-family: var(--font-sans); font-size: 17px; font-weight: 500;
+  color: var(--white);
+}
+.gallery-card-desc {
+  font-family: var(--font-body); font-size: 13px;
+  line-height: 1.6; color: rgba(255,255,255,0.55);
+  flex: 1;
+}
+.gallery-card-meta {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--font-mono); font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.gallery-card-arrow { color: rgba(255,255,255,0.5); }
+.gallery-card:hover .gallery-card-arrow { color: var(--white); }
+</style>
