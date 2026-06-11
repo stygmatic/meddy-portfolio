@@ -11,7 +11,7 @@ const project = projects.find(p => p.slug === slug)!;
 ---
 <Layout title={`${project.title} — Gallery`}>
 
-<div style="max-width:var(--max);margin:0 auto;padding:100px 40px 80px;">
+<div class="page-content">
 
   <!-- Header -->
   <div style="margin-bottom:48px;">
@@ -79,10 +79,22 @@ const project = projects.find(p => p.slug === slug)!;
 </Layout>
 
 <style>
+.page-content {
+  max-width: var(--max); margin: 0 auto;
+  padding: 100px 40px 80px;
+}
+@media (max-width: 640px) {
+  .page-content { padding: 90px 20px 60px; }
+}
 .files-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 12px;
+}
+@media (max-width: 640px) {
+  .files-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .modal-box { max-height: 95vh; }
+  .modal-body iframe, #stl-canvas { height: 55vh; }
 }
 .file-tile {
   border: 1px solid rgba(255,255,255,0.08);
