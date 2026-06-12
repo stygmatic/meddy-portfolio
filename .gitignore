@@ -4,11 +4,3 @@ dist/
 .env
 .DS_Store
 .vercel
-
-# Videos over GitHub's 100MB limit — host these externally
-public/gallery/space-pickles/DJI_0013.MP4
-public/gallery/space-pickles/DJI_0018.MP4
-public/gallery/space-pickles/DJI_0019.MP4
-public/gallery/space-pickles/DJI_0020.MP4
-public/gallery/space-pickles/C0085.mov
-public/gallery/space-pickles/IMG_9180.MOV
