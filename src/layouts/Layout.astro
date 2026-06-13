@@ -3,19 +3,55 @@ import '../styles/global.css';
 
 interface Props {
   title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
 }
-const { title = 'Meddy Ben Ayed' } = Astro.props;
+
+const {
+  title = 'Meddy Ben Ayed',
+  description = 'Meddy Ben Ayed — founder and engineer building autonomous systems and launching rockets. Creator of Caelus Industries and Space Pickles Rocketry.',
+  canonical,
+  ogImage = '/photo.jpg',
+} = Astro.props;
+
+const site = 'https://meddyportfolio-delta.vercel.app';
+const canonicalURL = canonical ? `${site}${canonical}` : `${site}${Astro.url.pathname}`;
+const ogImageURL = `${site}${ogImage}`;
+const fullTitle = title === 'Meddy Ben Ayed' ? title : `${title} — Meddy Ben Ayed`;
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>{title}</title>
-  <meta name="description" content="Meddy Ben Ayed — founder, engineer, and builder based in Fremont, CA."/>
+
+  <!-- Primary -->
+  <title>{fullTitle}</title>
+  <meta name="description" content={description}/>
+  <meta name="author" content="Meddy Ben Ayed"/>
   <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href={canonicalURL}/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content={canonicalURL}/>
+  <meta property="og:title" content={fullTitle}/>
+  <meta property="og:description" content={description}/>
+  <meta property="og:image" content={ogImageURL}/>
+  <meta property="og:site_name" content="Meddy Ben Ayed"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content={fullTitle}/>
+  <meta name="twitter:description" content={description}/>
+  <meta name="twitter:image" content={ogImageURL}/>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"/>
 </head>
 <body>
 

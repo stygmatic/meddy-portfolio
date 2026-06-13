@@ -9,7 +9,7 @@ export function getStaticPaths() {
 const { project: slug } = Astro.params;
 const project = projects.find(p => p.slug === slug)!;
 ---
-<Layout title={`${project.title} — Gallery`}>
+<Layout title={project.title} description={project.description} canonical={`/gallery/${slug}`}>
 
 <div class="page-content">
 

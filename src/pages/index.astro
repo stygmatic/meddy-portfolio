@@ -1,7 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Meddy Ben Ayed">
+<Layout
+  title="Meddy Ben Ayed"
+  description="Meddy Ben Ayed — founder and engineer based in Fremont, CA. Building autonomous defense systems at Caelus Industries and teaching STEM through Space Pickles Rocketry."
+  canonical="/"
+>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Meddy Ben Ayed",
+  "url": "https://meddyportfolio-delta.vercel.app",
+  "image": "https://meddyportfolio-delta.vercel.app/photo.jpg",
+  "jobTitle": "Founder & Engineer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Caelus Industries"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Fremont",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "email": "Meddybayed@gmail.com",
+  "sameAs": [
+    "https://linkedin.com/in/meddybayed"
+  ]
+}
+</script>
 
 <!-- ─── HERO ─── -->
 <section class="hero">
