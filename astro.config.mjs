@@ -3,6 +3,6 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://meddyportfolio-delta.vercel.app',
+  site: 'https://meddybenayed.com',
   integrations: [sitemap()],
 });
