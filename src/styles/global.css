@@ -312,7 +312,7 @@ nav {
   font-weight: 500; line-height: 1.1; color: var(--white);
 }
 .contact-heading em {
-  font-family: var(--font-serif); font-style: italic;
+  font-family: var(--font-serif); font-style: normal;
   font-weight: 300; color: rgba(255,255,255,0.78);
 }
 .contact-links {
