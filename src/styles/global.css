@@ -117,6 +117,12 @@ nav {
   line-height: 1.6; color: rgba(255,255,255,0.82);
   max-width: 560px; margin-bottom: 48px;
 }
+.hero-quote {
+  font-family: var(--font-serif); font-style: italic;
+  font-size: clamp(15px, 1.6vw, 18px);
+  color: rgba(255,255,255,0.55);
+  max-width: 560px; margin-top: -28px; margin-bottom: 40px;
+}
 .hero-meta {
   display: flex; flex-wrap: wrap; gap: 24px; align-items: center;
 }
